@@ -1,0 +1,289 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#080d18">
+
+    <title>HIFE.QUIZ | Challenge Your Mind</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="app-container">
+
+        <!-- HEADER -->
+        <header class="header">
+
+            <a href="#" class="brand">
+                <span class="brand-icon">H</span>
+                <span class="brand-name">HIFE<span>.QUIZ</span></span>
+            </a>
+
+            <div class="header-right">
+                <span class="header-label">KNOWLEDGE PLATFORM</span>
+
+                <button class="profile-button" aria-label="User profile">
+                    H
+                </button>
+            </div>
+
+        </header>
+
+        <!-- MAIN CONTENT -->
+        <main class="main-content">
+
+            <!-- INTRODUCTION -->
+            <section class="welcome-section">
+
+                <div class="welcome-label">
+                    <span class="status-dot"></span>
+                    YOUR KNOWLEDGE STARTS HERE
+                </div>
+
+                <h1>
+                    Challenge Your Mind.
+                    <span>Expand Your Knowledge.</span>
+                </h1>
+
+                <p>
+                    Test your knowledge across technology, programming,
+                    mathematics, science and physics.
+                    Learn from every question and improve with every attempt.
+                </p>
+
+            </section>
+
+            <!-- QUIZ SELECTION -->
+            <section class="quiz-section">
+
+                <div class="section-heading">
+                    <div>
+                        <span class="section-tag">01 / SELECT SUBJECT</span>
+                        <h2>Choose Your Challenge</h2>
+                        <p>Select a subject or explore them all.</p>
+                    </div>
+                </div>
+
+                <div class="category-grid">
+
+                    <!-- TECHNOLOGY -->
+                    <button class="category-card featured"
+                        data-category="technology">
+
+                        <div class="category-top">
+                            <span class="category-icon">&lt;/&gt;</span>
+                            <span class="category-number">01</span>
+                        </div>
+
+                        <h3>Technology & Programming</h3>
+
+                        <p>
+                            Programming languages, web development,
+                            databases, cybersecurity, AI and cloud computing.
+                        </p>
+
+                        <span class="category-link">
+                            Explore category <span>↗</span>
+                        </span>
+
+                    </button>
+
+                    <!-- MATHEMATICS -->
+                    <button class="category-card"
+                        data-category="mathematics">
+
+                        <div class="category-top">
+                            <span class="category-icon">∑</span>
+                            <span class="category-number">02</span>
+                        </div>
+
+                        <h3>Mathematics</h3>
+
+                        <p>
+                            Algebra, geometry, calculus, statistics
+                            and logical reasoning.
+                        </p>
+
+                        <span class="category-link">
+                            Explore category <span>↗</span>
+                        </span>
+
+                    </button>
+
+                    <!-- SCIENCE -->
+                    <button class="category-card"
+                        data-category="science">
+
+                        <div class="category-top">
+                            <span class="category-icon">⚗</span>
+                            <span class="category-number">03</span>
+                        </div>
+
+                        <h3>General Science</h3>
+
+                        <p>
+                            Biology, chemistry, human anatomy
+                            and scientific discoveries.
+                        </p>
+
+                        <span class="category-link">
+                            Explore category <span>↗</span>
+                        </span>
+
+                    </button>
+
+                    <!-- PHYSICS -->
+                    <button class="category-card"
+                        data-category="physics">
+
+                        <div class="category-top">
+                            <span class="category-icon">⚛</span>
+                            <span class="category-number">04</span>
+                        </div>
+
+                        <h3>Physics</h3>
+
+                        <p>
+                            Mechanics, electricity, energy,
+                            motion and waves.
+                        </p>
+
+                        <span class="category-link">
+                            Explore category <span>↗</span>
+                        </span>
+
+                    </button>
+
+                    <!-- MIXED QUIZ -->
+                    <button class="category-card mixed-card"
+                        data-category="mixed">
+
+                        <div class="category-top">
+                            <span class="category-icon">⤨</span>
+                            <span class="category-number">05</span>
+                        </div>
+
+                        <h3>Mixed Challenge</h3>
+
+                        <p>
+                            Combine all four subjects in one
+                            randomized knowledge challenge.
+                        </p>
+
+                        <span class="category-link">
+                            Explore all subjects <span>↗</span>
+                        </span>
+
+                    </button>
+
+                </div>
+
+            </section>
+
+            <!-- QUIZ CONFIGURATION -->
+            <section class="configuration-section">
+
+                <div class="section-heading">
+                    <div>
+                        <span class="section-tag">02 / SET YOUR LEVEL</span>
+                        <h2>Customize Your Challenge</h2>
+                        <p>Choose how difficult you want your quiz to be.</p>
+                    </div>
+                </div>
+
+                <div class="configuration-card">
+
+                    <div class="config-group">
+
+                        <label>Difficulty Level</label>
+
+                        <div class="difficulty-options">
+
+                            <button class="difficulty-button active"
+                                data-difficulty="beginner">
+                                Beginner
+                            </button>
+
+                            <button class="difficulty-button"
+                                data-difficulty="intermediate">
+                                Intermediate
+                            </button>
+
+                            <button class="difficulty-button"
+                                data-difficulty="advanced">
+                                Advanced
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                    <div class="config-divider"></div>
+
+                    <div class="quiz-info">
+
+                        <div>
+                            <span class="info-label">QUESTIONS</span>
+                            <strong>25</strong>
+                        </div>
+
+                        <div>
+                            <span class="info-label">TIME LIMIT</span>
+                            <strong>25 Minutes</strong>
+                        </div>
+
+                        <div>
+                            <span class="info-label">QUESTION TYPE</span>
+                            <strong>Multiple Choice</strong>
+                        </div>
+
+                    </div>
+
+                    <button class="start-button" id="start-quiz">
+                        Start Quiz <span>→</span>
+                    </button>
+
+                    <p class="selection-message" id="selection-message">
+                        Select a category to begin your challenge.
+                    </p>
+
+                </div>
+
+            </section>
+
+            <!-- FOOTER -->
+            <footer class="footer">
+
+                <div class="footer-brand">
+                    HIFE<span>.QUIZ</span>
+                </div>
+
+                <p>
+                    Built with HTML, CSS & JavaScript.
+                    <span>© <span id="current-year"></span> Hife.</span>
+                </p>
+
+                <span class="footer-signature">
+                    CHALLENGE YOUR LIMITS.
+                </span>
+
+            </footer>
+
+        </main>
+
+    </div>
+
+    <script src="questions.js"></script>
+<script src="script.js"></script>
+
+</body>
+</html>
