@@ -1,289 +1,3404 @@
-
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#080d18">
 
-    <title>HIFE.QUIZ | Challenge Your Mind</title>
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <title>HIFEQUIZ | Challenge Your Mind</title>
 
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <div class="app-container">
 
-        <!-- HEADER -->
-        <header class="header">
+<!-- =========================================================
+     1. HIFEQUIZ HEADER
+========================================================= -->
 
-            <a href="#" class="brand">
-                <span class="brand-icon">H</span>
-                <span class="brand-name">HIFE<span>.QUIZ</span></span>
-            </a>
+<header class="welcome-header" id="welcomeHeader">
 
-            <div class="header-right">
-                <span class="header-label">KNOWLEDGE PLATFORM</span>
+    <div class="header-container">
 
-                <button class="profile-button" aria-label="User profile">
-                    H
-                </button>
+        <!-- BRAND -->
+        <a href="#" class="brand" id="hifequizBrand" aria-label="HIFEQUIZ Home">
+
+            <!-- CUSTOM BOOK LOGO -->
+            <div class="brand-logo" id="brandLogo">
+
+                <svg
+                    class="book-logo"
+                    viewBox="0 0 64 64"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                    aria-hidden="true"
+                >
+
+                    <path
+                        class="book-cover"
+                        d="M8 14C17 10 26 12 32 17V52C25 46 16 45 8 49V14Z"
+                    />
+
+                    <path
+                        class="book-cover-right"
+                        d="M56 14C47 10 38 12 32 17V52C39 46 48 45 56 49V14Z"
+                    />
+
+                    <path
+                        class="book-page-left"
+                        d="M13 19C20 17 26 19 30 22"
+                    />
+
+                    <path
+                        class="book-page-left"
+                        d="M13 26C20 24 26 26 30 29"
+                    />
+
+                    <path
+                        class="book-page-left"
+                        d="M13 33C20 31 26 33 30 36"
+                    />
+
+                    <path
+                        class="book-page-right"
+                        d="M51 19C44 17 38 19 34 22"
+                    />
+
+                    <path
+                        class="book-page-right"
+                        d="M51 26C44 24 38 26 34 29"
+                    />
+
+                    <path
+                        class="book-page-right"
+                        d="M51 33C44 31 38 33 34 36"
+                    />
+
+                    <path
+                        class="book-spine"
+                        d="M32 17V52"
+                    />
+
+                </svg>
+
             </div>
 
-        </header>
 
-        <!-- MAIN CONTENT -->
-        <main class="main-content">
+            <!-- ANIMATED BRAND NAME -->
+            <div class="brand-name-wrapper">
 
-            <!-- INTRODUCTION -->
-            <section class="welcome-section">
+                <span class="brand-name" id="brandName">
 
-                <div class="welcome-label">
-                    <span class="status-dot"></span>
-                    YOUR KNOWLEDGE STARTS HERE
+                    <span class="brand-letter">H</span>
+                    <span class="brand-letter">I</span>
+                    <span class="brand-letter">F</span>
+                    <span class="brand-letter">E</span>
+                    <span class="brand-letter">Q</span>
+                    <span class="brand-letter">U</span>
+                    <span class="brand-letter">I</span>
+                    <span class="brand-letter">Z</span>
+
+                </span>
+
+            </div>
+
+        </a>
+
+
+        <!-- HEADER CONTROLS -->
+        <div class="header-controls">
+
+
+            <!-- THEME TOGGLE -->
+            <button
+                class="theme-toggle"
+                id="themeToggle"
+                type="button"
+                aria-label="Switch theme"
+                title="Switch theme"
+            >
+
+                <svg
+                    class="theme-icon"
+                    id="themeIcon"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                    aria-hidden="true"
+                >
+
+                    <circle cx="12" cy="12" r="4"/>
+
+                    <path
+                        d="M12 2V4
+                           M12 20V22
+                           M4.93 4.93L6.34 6.34
+                           M17.66 17.66L19.07 19.07
+                           M2 12H4
+                           M20 12H22
+                           M4.93 19.07L6.34 17.66
+                           M17.66 6.34L19.07 4.93"
+                    />
+
+                </svg>
+
+            </button>
+
+
+            <!-- HELP BUTTON -->
+            <div class="header-dropdown" id="helpDropdown">
+
+                <button
+                    class="header-icon-button"
+                    id="helpButton"
+                    type="button"
+                    aria-expanded="false"
+                    aria-controls="helpPanel"
+                    aria-label="Help"
+                    title="Help"
+                >
+
+                    <svg
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                        aria-hidden="true"
+                    >
+
+                        <path
+                            d="M12 3
+                               C7.03 3 3 7.03 3 12
+                               C3 16.97 7.03 21 12 21
+                               C16.97 21 21 16.97 21 12
+                               C21 7.03 16.97 3 12 3Z"
+                        />
+
+                        <path
+                            d="M9.5 9
+                               C9.5 7.62 10.62 6.5 12 6.5
+                               C13.38 6.5 14.5 7.62 14.5 9
+                               C14.5 10.5 13 11 12 12
+                               C11.5 12.5 11.5 13 11.5 14"
+                        />
+
+                        <circle cx="11.5" cy="17" r="0.8"/>
+
+                    </svg>
+
+                </button>
+
+
+                <!-- HELP DROPDOWN PANEL -->
+                <div
+                    class="dropdown-panel help-panel"
+                    id="helpPanel"
+                    hidden
+                >
+
+                    <div class="dropdown-panel-header">
+
+                        <h3>Help Center</h3>
+
+                        <p>Need help using HIFEQUIZ?</p>
+
+                    </div>
+
+                    <div class="dropdown-panel-content">
+
+                        <!-- Help content will be added later -->
+
+                    </div>
+
                 </div>
 
-                <h1>
-                    Challenge Your Mind.
-                    <span>Expand Your Knowledge.</span>
-                </h1>
+            </div>
 
-                <p>
-                    Test your knowledge across technology, programming,
-                    mathematics, science and physics.
-                    Learn from every question and improve with every attempt.
+
+            <!-- ABOUT BUTTON -->
+            <div class="header-dropdown" id="aboutDropdown">
+
+                <button
+                    class="header-icon-button"
+                    id="aboutButton"
+                    type="button"
+                    aria-expanded="false"
+                    aria-controls="aboutPanel"
+                    aria-label="About HIFEQUIZ"
+                    title="About HIFEQUIZ"
+                >
+
+                    <svg
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                        aria-hidden="true"
+                    >
+
+                        <circle cx="12" cy="12" r="9"/>
+
+                        <path d="M12 10.5V16"/>
+
+                        <circle cx="12" cy="7.5" r="0.8"/>
+
+                    </svg>
+
+                </button>
+
+
+                <!-- ABOUT DROPDOWN PANEL -->
+                <div
+                    class="dropdown-panel about-panel"
+                    id="aboutPanel"
+                    hidden
+                >
+
+                    <div class="dropdown-panel-header">
+
+                        <h3>About HIFEQUIZ</h3>
+
+                        <p>Discover, challenge, and improve.</p>
+
+                    </div>
+
+                    <div class="dropdown-panel-content">
+
+                        <!-- About content will be added later -->
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</header>
+<!-- =========================================================
+     2. HERO SECTION
+========================================================= -->
+
+<section class="hero-section" id="heroSection">
+
+    <div class="hero-container">
+
+        <!-- HERO CONTENT -->
+        <div class="hero-content">
+
+            <!-- ANIMATED INTRO BADGE -->
+            <div class="hero-badge" id="heroBadge">
+
+                <span class="badge-sparkle">✦</span>
+
+                <span class="badge-text">
+                    Ready to Test What You Know?
+                </span>
+
+            </div>
+
+
+            <!-- MAIN HEADLINE -->
+            <h1 class="hero-title">
+
+                <span class="hero-title-line">
+                    Challenge Your Mind.
+                </span>
+
+                <span class="hero-title-line hero-title-accent">
+                    Expand Your Knowledge.
+                </span>
+
+            </h1>
+
+
+            <!-- DESCRIPTION -->
+            <p class="hero-description">
+
+                Test your knowledge across technology, programming,
+                mathematics, science and physics.
+
+                Learn from every question and improve with every attempt.
+
+            </p>
+
+
+            <!-- HERO CALL TO ACTION -->
+            <div class="hero-actions">
+
+                <a
+                    href="#quizSetup"
+                    class="hero-cta"
+                    id="startQuizButton"
+                >
+
+                    <span class="cta-text">
+                        Start Your Quiz
+                    </span>
+
+                    <span class="cta-arrow" aria-hidden="true">
+                        →
+                    </span>
+
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- KNOWLEDGE ILLUSTRATION AREA -->
+        <div class="hero-illustration" id="heroIllustration"
+             aria-hidden="true">
+
+
+            <!-- FLOATING BRAIN -->
+            <div class="floating-brain" id="floatingBrain">
+
+                <div class="brain-illustration">
+                    <!-- Brain illustration will be added during styling -->
+                </div>
+
+            </div>
+
+
+            <!-- FLOATING BOOK 1 -->
+            <div class="floating-book floating-book-one"
+                 id="floatingBookOne">
+
+                <div class="book-illustration book-one">
+                    <!-- Book illustration -->
+                </div>
+
+            </div>
+
+
+            <!-- FLOATING BOOK 2 -->
+            <div class="floating-book floating-book-two"
+                 id="floatingBookTwo">
+
+                <div class="book-illustration book-two">
+                    <!-- Book illustration -->
+                </div>
+
+            </div>
+
+
+            <!-- FLOATING BOOK 3 -->
+            <div class="floating-book floating-book-three"
+                 id="floatingBookThree">
+
+                <div class="book-illustration book-three">
+                    <!-- Book illustration -->
+                </div>
+
+            </div>
+
+
+            <!-- FLOATING KNOWLEDGE SYMBOLS -->
+            <div class="floating-symbol symbol-one">
+                +
+            </div>
+
+            <div class="floating-symbol symbol-two">
+                ∑
+            </div>
+
+            <div class="floating-symbol symbol-three">
+                π
+            </div>
+
+            <div class="floating-symbol symbol-four">
+                ∞
+            </div>
+
+
+            <!-- DECORATIVE FLOATING SHAPES -->
+            <div class="hero-orbit orbit-one"></div>
+
+            <div class="hero-orbit orbit-two"></div>
+
+            <div class="hero-shape hero-shape-one"></div>
+
+            <div class="hero-shape hero-shape-two"></div>
+
+            <div class="hero-shape hero-shape-three"></div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ========================================================
+     03. QUIZ CONFIGURATION SECTION
+======================================================== -->
+
+<section class="quiz-setup-section" id="quizSetup" hidden>
+
+    <div class="quiz-setup-container">
+
+        <!-- CONFIGURATION HEADER -->
+        <div class="setup-heading">
+
+            <span class="setup-eyebrow">
+                <span class="setup-eyebrow-dot"></span>
+                PERSONALIZE YOUR EXPERIENCE
+            </span>
+
+            <h2 class="setup-title">
+                Configure Your <span>Quiz</span>
+            </h2>
+
+            <p class="setup-description">
+                Choose your subjects, set your difficulty,
+                and customize your quiz experience.
+            </p>
+
+        </div>
+
+
+        <!-- =================================================
+             01. SUBJECT SELECTION
+        ================================================== -->
+
+        <div class="setup-card subject-selection-card">
+
+            <div class="setup-card-header">
+
+                <div class="setup-card-heading">
+                    <span class="setup-step-number">01</span>
+
+                    <div>
+                        <span class="setup-category-label">
+                            SUBJECT
+                        </span>
+
+                        <h3>Select Your Subjects</h3>
+
+                        <p>
+                            Choose one or multiple subjects,
+                            or challenge yourself with all six.
+                        </p>
+                    </div>
+                </div>
+
+                <span class="selection-count" id="subjectSelectionCount">
+                    0 Selected
+                </span>
+
+            </div>
+
+
+            <!-- SUBJECT CARDS -->
+
+            <div class="subject-grid" id="subjectGrid">
+
+                <!-- TECHNOLOGY -->
+                <button
+                    type="button"
+                    class="subject-card"
+                    data-subject="technology"
+                    aria-pressed="false"
+                >
+                    <span class="subject-icon">
+                        <svg viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="1.8"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="3" y="4" width="18" height="13" rx="2"/>
+                            <path d="M8 21h8M12 17v4M8 9l-2 2 2 2M16 9l2 2-2 2"/>
+                        </svg>
+                    </span>
+
+                    <span class="subject-name">Technology</span>
+
+                    <span class="subject-description">
+                        Programming, Web Development, Tech & More
+                    </span>
+
+                    <span class="subject-check">
+                        <svg viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2.5"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path d="m5 12 4 4L19 6"/>
+                        </svg>
+                    </span>
+                </button>
+
+
+                <!-- MATHEMATICS -->
+                <button
+                    type="button"
+                    class="subject-card"
+                    data-subject="mathematics"
+                    aria-pressed="false"
+                >
+                    <span class="subject-icon">
+                        <svg viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="1.8"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M5 5h14M5 12h14M5 19h14"/>
+                            <path d="m8 3-3 2 3 2M16 10l3 2-3 2M8 17l-3 2 3 2"/>
+                        </svg>
+                    </span>
+
+                    <span class="subject-name">Mathematics</span>
+
+                    <span class="subject-description">
+                        Numbers, Algebra, Geometry & More
+                    </span>
+
+                    <span class="subject-check">
+                        <svg viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2.5"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path d="m5 12 4 4L19 6"/>
+                        </svg>
+                    </span>
+                </button>
+
+
+                <!-- ENGLISH AND LITERARY STUDIES -->
+                <button
+                    type="button"
+                    class="subject-card"
+                    data-subject="english"
+                    aria-pressed="false"
+                >
+                    <span class="subject-icon">
+                        <svg viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="1.8"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v16H6.5A2.5 2.5 0 0 0 4 21z"/>
+                            <path d="M4 5.5V21M8 7h8M8 11h8M8 15h5"/>
+                        </svg>
+                    </span>
+
+                    <span class="subject-name">
+                        English & Literary Studies
+                    </span>
+
+                    <span class="subject-description">
+                        Grammar, Literature, Vocabulary & More
+                    </span>
+
+                    <span class="subject-check">
+                        <svg viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2.5"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path d="m5 12 4 4L19 6"/>
+                        </svg>
+                    </span>
+                </button>
+
+
+                <!-- PHYSICS -->
+                <button
+                    type="button"
+                    class="subject-card"
+                    data-subject="physics"
+                    aria-pressed="false"
+                >
+                    <span class="subject-icon">
+                        <svg viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="1.8"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="2"/>
+                            <ellipse cx="12" cy="12" rx="10" ry="4.5"/>
+                            <ellipse cx="12" cy="12" rx="10" ry="4.5"
+                                transform="rotate(60 12 12)"/>
+                            <ellipse cx="12" cy="12" rx="10" ry="4.5"
+                                transform="rotate(120 12 12)"/>
+                        </svg>
+                    </span>
+
+                    <span class="subject-name">Physics</span>
+
+                    <span class="subject-description">
+                        Motion, Energy, Forces & More
+                    </span>
+
+                    <span class="subject-check">
+                        <svg viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2.5"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path d="m5 12 4 4L19 6"/>
+                        </svg>
+                    </span>
+                </button>
+
+
+                <!-- BIOLOGY -->
+                <button
+                    type="button"
+                    class="subject-card"
+                    data-subject="biology"
+                    aria-pressed="false"
+                >
+                    <span class="subject-icon">
+                        <svg viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="1.8"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M20 4c-8 0-15 4-15 11a5 5 0 0 0 5 5c7 0 11-7 10-16z"/>
+                            <path d="M4 21c3-5 7-8 13-12"/>
+                        </svg>
+                    </span>
+
+                    <span class="subject-name">Biology</span>
+
+                    <span class="subject-description">
+                        Life, Cells, Anatomy & Natural Science
+                    </span>
+
+                    <span class="subject-check">
+                        <svg viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2.5"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path d="m5 12 4 4L19 6"/>
+                        </svg>
+                    </span>
+                </button>
+
+
+                <!-- CHEMISTRY -->
+                <button
+                    type="button"
+                    class="subject-card"
+                    data-subject="chemistry"
+                    aria-pressed="false"
+                >
+                    <span class="subject-icon">
+                        <svg viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="1.8"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M9 3h6M10 3v7l-5 9a1.5 1.5 0 0 0 1.3 2h11.4a1.5 1.5 0 0 0 1.3-2l-5-9V3"/>
+                            <path d="M8 15h8M9 18h6"/>
+                        </svg>
+                    </span>
+
+                    <span class="subject-name">Chemistry</span>
+
+                    <span class="subject-description">
+                        Elements, Reactions, Compounds & More
+                    </span>
+
+                    <span class="subject-check">
+                        <svg viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2.5"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path d="m5 12 4 4L19 6"/>
+                        </svg>
+                    </span>
+                </button>
+
+
+                <!-- MIXED QUESTIONS -->
+                <button
+                    type="button"
+                    class="subject-card mixed-subject-card"
+                    data-subject="mixed"
+                    aria-pressed="false"
+                >
+                    <span class="subject-icon">
+                        <svg viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="1.8"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="3" y="3" width="7" height="7" rx="1.5"/>
+                            <rect x="14" y="3" width="7" height="7" rx="1.5"/>
+                            <rect x="3" y="14" width="7" height="7" rx="1.5"/>
+                            <rect x="14" y="14" width="7" height="7" rx="1.5"/>
+                        </svg>
+                    </span>
+
+                    <span class="subject-name">Mixed Questions</span>
+
+                    <span class="subject-description">
+                        Questions Automatically Mixed From All Six Subjects
+                    </span>
+
+                    <span class="subject-check">
+                        <svg viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2.5"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path d="m5 12 4 4L19 6"/>
+                        </svg>
+                    </span>
+                </button>
+
+            </div>
+
+            <p class="setup-helper-text">
+                You can select multiple subjects. Mixed Questions
+                automatically includes all six subjects.
+            </p>
+
+        </div>
+
+
+        <!-- =================================================
+             02. DIFFICULTY SELECTION
+        ================================================== -->
+
+        <div class="setup-card difficulty-selection-card">
+
+            <div class="setup-card-header">
+
+                <div class="setup-card-heading">
+                    <span class="setup-step-number">02</span>
+
+                    <div>
+                        <span class="setup-category-label">
+                            DIFFICULTY
+                        </span>
+
+                        <h3>Choose Your Difficulty</h3>
+
+                        <p>
+                            Select one difficulty level for your entire quiz.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+
+
+            <div class="difficulty-grid" id="difficultyGrid">
+
+                <button
+                    type="button"
+                    class="difficulty-option"
+                    data-difficulty="beginner"
+                    aria-pressed="false"
+                >
+                    <span class="difficulty-icon">
+                        <svg viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="1.8"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 3v18M5 12h14"/>
+                            <path d="m8 8-3 4 3 4M16 8l3 4-3 4"/>
+                        </svg>
+                    </span>
+
+                    <span class="difficulty-name">Beginner</span>
+
+                    <span class="difficulty-description">
+                        Start with the fundamentals.
+                    </span>
+
+                    <span class="difficulty-check">✓</span>
+                </button>
+
+
+                <button
+                    type="button"
+                    class="difficulty-option"
+                    data-difficulty="intermediate"
+                    aria-pressed="false"
+                >
+                    <span class="difficulty-icon">
+                        <svg viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="1.8"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path d="m12 3 2.5 5.5L20 11l-5.5 2.5L12 19l-2.5-5.5L4 11l5.5-2.5z"/>
+                        </svg>
+                    </span>
+
+                    <span class="difficulty-name">Intermediate</span>
+
+                    <span class="difficulty-description">
+                        Challenge your understanding.
+                    </span>
+
+                    <span class="difficulty-check">✓</span>
+                </button>
+
+
+                <button
+                    type="button"
+                    class="difficulty-option"
+                    data-difficulty="advanced"
+                    aria-pressed="false"
+                >
+                    <span class="difficulty-icon">
+                        <svg viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="1.8"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path d="m12 2 2.5 7.5L22 12l-7.5 2.5L12 22l-2.5-7.5L2 12l7.5-2.5z"/>
+                        </svg>
+                    </span>
+
+                    <span class="difficulty-name">Advanced</span>
+
+                    <span class="difficulty-description">
+                        Take on the toughest questions.
+                    </span>
+
+                    <span class="difficulty-check">✓</span>
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             03. QUESTION COUNT
+        ================================================== -->
+
+        <div class="setup-card question-count-card">
+
+            <div class="setup-card-header">
+
+                <div class="setup-card-heading">
+                    <span class="setup-step-number">03</span>
+
+                    <div>
+                        <span class="setup-category-label">
+                            NUMBER OF QUESTIONS
+                        </span>
+
+                        <h3>How Many Questions?</h3>
+
+                        <p>
+                            Choose how many questions you want to answer.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+
+
+            <div class="choice-grid" id="questionCountGrid">
+
+                <button type="button" class="choice-option"
+                    data-question-count="10" aria-pressed="false">
+                    <span class="choice-value">10</span>
+                    <span class="choice-label">Questions</span>
+                </button>
+
+                <button type="button" class="choice-option"
+                    data-question-count="20" aria-pressed="false">
+                    <span class="choice-value">20</span>
+                    <span class="choice-label">Questions</span>
+                </button>
+
+                <button type="button" class="choice-option"
+                    data-question-count="30" aria-pressed="false">
+                    <span class="choice-value">30</span>
+                    <span class="choice-label">Questions</span>
+                </button>
+
+                <button type="button" class="choice-option"
+                    data-question-count="50" aria-pressed="false">
+                    <span class="choice-value">50</span>
+                    <span class="choice-label">Questions</span>
+                </button>
+
+                <button type="button" class="choice-option custom-choice"
+                    data-question-count="custom" aria-pressed="false">
+                    <span class="choice-value">+</span>
+                    <span class="choice-label">Custom Amount</span>
+                </button>
+
+            </div>
+
+
+            <div class="custom-input-container"
+                id="customQuestionContainer" hidden>
+
+                <label for="customQuestionCount">
+                    Enter Your Question Count
+                </label>
+
+                <input
+                    type="number"
+                    id="customQuestionCount"
+                    min="1"
+                    step="1"
+                    placeholder="Enter number of questions"
+                >
+
+                <span class="input-hint">
+                    Your selected subjects and difficulty
+                    determine the available question limit.
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             04. TIMER SELECTION
+        ================================================== -->
+
+        <div class="setup-card timer-selection-card">
+
+            <div class="setup-card-header">
+
+                <div class="setup-card-heading">
+                    <span class="setup-step-number">04</span>
+
+                    <div>
+                        <span class="setup-category-label">
+                            TIMER
+                        </span>
+
+                        <h3>Set Your Time Limit</h3>
+
+                        <p>
+                            Decide how much time you want for your quiz.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+
+
+            <div class="choice-grid" id="timerGrid">
+
+                <button type="button" class="choice-option"
+                    data-timer="5" aria-pressed="false">
+                    <span class="choice-value">5</span>
+                    <span class="choice-label">Minutes</span>
+                </button>
+
+                <button type="button" class="choice-option"
+                    data-timer="10" aria-pressed="false">
+                    <span class="choice-value">10</span>
+                    <span class="choice-label">Minutes</span>
+                </button>
+
+                <button type="button" class="choice-option"
+                    data-timer="20" aria-pressed="false">
+                    <span class="choice-value">20</span>
+                    <span class="choice-label">Minutes</span>
+                </button>
+
+                <button type="button" class="choice-option"
+                    data-timer="30" aria-pressed="false">
+                    <span class="choice-value">30</span>
+                    <span class="choice-label">Minutes</span>
+                </button>
+
+                <button type="button" class="choice-option custom-choice"
+                    data-timer="custom" aria-pressed="false">
+                    <span class="choice-value">+</span>
+                    <span class="choice-label">Custom Time</span>
+                </button>
+
+            </div>
+
+
+            <div class="custom-input-container"
+                id="customTimerContainer" hidden>
+
+                <label for="customTimerMinutes">
+                    Enter Your Time Limit
+                </label>
+
+                <input
+                    type="number"
+                    id="customTimerMinutes"
+                    min="1"
+                    step="1"
+                    placeholder="Enter time in minutes"
+                >
+
+                <span class="input-hint">
+                    Enter your preferred time in minutes.
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             05. QUIZ MODE
+        ================================================== -->
+
+        <div class="setup-card quiz-mode-card">
+
+            <div class="setup-card-header">
+
+                <div class="setup-card-heading">
+                    <span class="setup-step-number">05</span>
+
+                    <div>
+                        <span class="setup-category-label">
+                            QUIZ MODE
+                        </span>
+
+                        <h3>Choose Your Experience</h3>
+
+                        <p>
+                            Decide how you want to approach your quiz.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+
+
+            <div class="quiz-mode-grid" id="quizModeGrid">
+
+                <!-- PRACTICE MODE -->
+                <button
+                    type="button"
+                    class="quiz-mode-option"
+                    data-mode="practice"
+                    aria-pressed="false"
+                >
+                    <span class="mode-icon">
+                        <svg viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="1.8"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 3a9 9 0 1 0 9 9"/>
+                            <path d="M12 7v5l3 2"/>
+                            <path d="M16 3h5v5"/>
+                        </svg>
+                    </span>
+
+                    <span class="mode-title">Practice Mode</span>
+
+                    <span class="mode-description">
+                        Learn as you go. Receive feedback and
+                        explanations while answering questions.
+                    </span>
+
+                    <span class="mode-check">✓</span>
+                </button>
+
+
+                <!-- EXAM MODE -->
+                <button
+                    type="button"
+                    class="quiz-mode-option"
+                    data-mode="exam"
+                    aria-pressed="false"
+                >
+                    <span class="mode-icon">
+                        <svg viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="1.8"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="4" y="3" width="16" height="18" rx="2"/>
+                            <path d="M8 8h8M8 12h8M8 16h5"/>
+                        </svg>
+                    </span>
+
+                    <span class="mode-title">Exam Mode</span>
+
+                    <span class="mode-description">
+                        Test your knowledge without seeing
+                        feedback until the quiz is completed.
+                    </span>
+
+                    <span class="mode-check">✓</span>
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             06. CONFIGURATION VALIDATION MESSAGE
+        ================================================== -->
+
+        <div
+            class="setup-validation-message"
+            id="setupValidationMessage"
+            role="alert"
+            aria-live="polite"
+            hidden
+        >
+            <span class="validation-icon">!</span>
+
+            <span id="setupValidationText">
+                Please select your subjects, difficulty,
+                question count, timer and quiz mode.
+            </span>
+        </div>
+
+
+        <!-- =================================================
+             07. QUIZ CONFIGURATION SUMMARY
+        ================================================== -->
+
+        <div class="quiz-summary-card" id="quizSummaryCard">
+
+            <div class="summary-header">
+
+                <div>
+                    <span class="setup-category-label">
+                        YOUR CONFIGURATION
+                    </span>
+
+                    <h3>Quiz Summary</h3>
+
+                    <p>
+                        Review your selections before starting.
+                    </p>
+                </div>
+
+                <span class="summary-icon">
+                    <svg viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="1.8"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M8 3h8l4 4v14H4V3z"/>
+                        <path d="M8 3v5h8V3M8 13h8M8 17h5"/>
+                    </svg>
+                </span>
+
+            </div>
+
+
+            <div class="summary-details">
+
+                <div class="summary-item">
+                    <span class="summary-label">Subjects</span>
+                    <span class="summary-value" id="summarySubjects">
+                        Not selected
+                    </span>
+                </div>
+
+                <div class="summary-item">
+                    <span class="summary-label">Difficulty</span>
+                    <span class="summary-value" id="summaryDifficulty">
+                        Not selected
+                    </span>
+                </div>
+
+                <div class="summary-item">
+                    <span class="summary-label">Questions</span>
+                    <span class="summary-value" id="summaryQuestions">
+                        Not selected
+                    </span>
+                </div>
+
+                <div class="summary-item">
+                    <span class="summary-label">Time Limit</span>
+                    <span class="summary-value" id="summaryTimer">
+                        Not selected
+                    </span>
+                </div>
+
+                <div class="summary-item">
+                    <span class="summary-label">Quiz Mode</span>
+                    <span class="summary-value" id="summaryMode">
+                        Not selected
+                    </span>
+                </div>
+
+            </div>
+
+
+            <div class="summary-footer">
+
+                <p class="summary-note">
+                    Make sure your settings are correct
+                    before beginning your challenge.
                 </p>
 
+                <button
+                    type="button"
+                    class="start-quiz-button"
+                    id="confirmStartQuiz"
+                >
+                    <span>Start Quiz</span>
+
+                    <svg viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M5 12h14M13 6l6 6-6 6"/>
+                    </svg>
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- RETURN TO HERO -->
+        <button
+            type="button"
+            class="back-to-hero-button"
+            id="backToHeroButton"
+        >
+            <svg viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="m15 18-6-6 6-6"/>
+            </svg>
+
+            <span>Back to Home</span>
+        </button>
+
+    </div>
+
+</section>
+
+<!-- END QUIZ CONFIGURATION SECTION -->
+<!-- =========================================================
+     3. QUIZ PAGE
+========================================================= -->
+
+<section class="quiz-page" id="quizPage" hidden>
+
+    <!-- QUIZ HEADER -->
+    <header class="quiz-header" id="quizHeader">
+
+        <!-- EXIT QUIZ -->
+        <div class="quiz-header-left">
+            <button
+                type="button"
+                class="exit-quiz-button"
+                id="exitQuizButton"
+                aria-label="Exit quiz"
+            >
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path
+                        d="M15 18l-6-6 6-6M9 12h12"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                    />
+                </svg>
+                <span>Exit Quiz</span>
+            </button>
+        </div>
+
+        <!-- QUIZ PROGRESS -->
+        <div class="quiz-header-center">
+
+            <div class="quiz-progress-info">
+                <span class="quiz-progress-label">QUIZ PROGRESS</span>
+
+                <span class="quiz-progress-count" id="quizProgressCount">
+                    <span id="answeredQuestionCount">0</span>
+                    <span class="progress-count-divider">/</span>
+                    <span id="totalQuestionCount">0</span>
+                    <span class="progress-count-text">Answered</span>
+                </span>
+            </div>
+
+            <div
+                class="quiz-progress-track"
+                id="quizProgressTrack"
+                role="progressbar"
+                aria-label="Current quiz position"
+                aria-valuemin="0"
+                aria-valuemax="100"
+                aria-valuenow="0"
+            >
+                <div
+                    class="quiz-progress-fill"
+                    id="quizProgressFill"
+                ></div>
+            </div>
+
+            <div class="quiz-position-label">
+                Question
+                <span id="currentQuestionPosition">1</span>
+                of
+                <span id="headerTotalQuestions">0</span>
+            </div>
+
+        </div>
+
+        <!-- QUIZ TIMER -->
+        <div class="quiz-header-right">
+
+            <div class="quiz-timer" id="quizTimerContainer">
+
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <circle
+                        cx="12"
+                        cy="13"
+                        r="8"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="1.8"
+                    />
+                    <path
+                        d="M12 9v4l2.5 1.5M9 2h6M12 2v3"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="1.8"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                    />
+                </svg>
+
+                <span
+                    class="quiz-timer-value"
+                    id="quizTimer"
+                    role="timer"
+                    aria-live="off"
+                >
+                    00:00
+                </span>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- QUIZ MAIN CONTENT -->
+    <main class="quiz-main">
+
+        <div class="quiz-content-container">
+
+            <!-- QUIZ INFORMATION -->
+            <div class="quiz-information">
+
+                <div class="quiz-information-left">
+                    <span
+                        class="quiz-mode-badge"
+                        id="activeQuizMode"
+                    >
+                        Practice Mode
+                    </span>
+
+                    <span
+                        class="quiz-difficulty-badge"
+                        id="activeQuizDifficulty"
+                    >
+                        Beginner
+                    </span>
+                </div>
+
+                <div class="quiz-information-right">
+                    <span
+                        class="quiz-subject-label"
+                        id="activeQuestionSubject"
+                    >
+                        Mathematics
+                    </span>
+                </div>
+
+            </div>
+
+
+            <!-- QUESTION CONTAINER -->
+            <section
+                class="question-card"
+                id="questionCard"
+                aria-labelledby="questionText"
+            >
+
+                <!-- QUESTION TOP -->
+                <div class="question-card-header">
+
+                    <div class="question-number">
+                        <span class="question-number-label">QUESTION</span>
+
+                        <span
+                            class="question-number-value"
+                            id="questionNumber"
+                        >
+                            01
+                        </span>
+
+                        <span class="question-number-divider">/</span>
+
+                        <span
+                            class="question-number-total"
+                            id="questionNumberTotal"
+                        >
+                            30
+                        </span>
+                    </div>
+
+                    <span
+                        class="question-status"
+                        id="questionStatus"
+                    >
+                        Not answered
+                    </span>
+
+                </div>
+
+
+                <!-- QUESTION TEXT -->
+                <div class="question-body">
+
+                    <h2
+                        class="question-text"
+                        id="questionText"
+                        tabindex="-1"
+                    >
+                        Your question will appear here.
+                    </h2>
+
+                    <!-- Optional question image -->
+                    <div
+                        class="question-image-container"
+                        id="questionImageContainer"
+                        hidden
+                    >
+                        <img
+                            src=""
+                            alt="Question illustration"
+                            id="questionImage"
+                        >
+                    </div>
+
+                </div>
+
+
+                <!-- ANSWER OPTIONS -->
+                <div
+                    class="answer-options"
+                    id="answerOptions"
+                    role="group"
+                    aria-label="Answer options"
+                >
+
+                    <button
+                        type="button"
+                        class="answer-option"
+                        data-answer="A"
+                        aria-pressed="false"
+                    >
+                        <span class="answer-option-letter">A</span>
+                        <span class="answer-option-text">
+                            Answer option A
+                        </span>
+                        <span class="answer-option-indicator" aria-hidden="true">
+                            <svg viewBox="0 0 24 24">
+                                <path
+                                    d="M5 12l4 4L19 6"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    stroke-width="2.5"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                />
+                            </svg>
+                        </span>
+                    </button>
+
+                    <button
+                        type="button"
+                        class="answer-option"
+                        data-answer="B"
+                        aria-pressed="false"
+                    >
+                        <span class="answer-option-letter">B</span>
+                        <span class="answer-option-text">
+                            Answer option B
+                        </span>
+                        <span class="answer-option-indicator" aria-hidden="true">
+                            <svg viewBox="0 0 24 24">
+                                <path
+                                    d="M5 12l4 4L19 6"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    stroke-width="2.5"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                />
+                            </svg>
+                        </span>
+                    </button>
+
+                    <button
+                        type="button"
+                        class="answer-option"
+                        data-answer="C"
+                        aria-pressed="false"
+                    >
+                        <span class="answer-option-letter">C</span>
+                        <span class="answer-option-text">
+                            Answer option C
+                        </span>
+                        <span class="answer-option-indicator" aria-hidden="true">
+                            <svg viewBox="0 0 24 24">
+                                <path
+                                    d="M5 12l4 4L19 6"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    stroke-width="2.5"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                />
+                            </svg>
+                        </span>
+                    </button>
+
+                    <button
+                        type="button"
+                        class="answer-option"
+                        data-answer="D"
+                        aria-pressed="false"
+                    >
+                        <span class="answer-option-letter">D</span>
+                        <span class="answer-option-text">
+                            Answer option D
+                        </span>
+                        <span class="answer-option-indicator" aria-hidden="true">
+                            <svg viewBox="0 0 24 24">
+                                <path
+                                    d="M5 12l4 4L19 6"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    stroke-width="2.5"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                />
+                            </svg>
+                        </span>
+                    </button>
+
+                </div>
+
+
+                <!-- PRACTICE MODE FEEDBACK -->
+                <div
+                    class="answer-feedback"
+                    id="answerFeedback"
+                    aria-live="polite"
+                    hidden
+                >
+
+                    <div class="feedback-heading">
+
+                        <span
+                            class="feedback-status-icon"
+                            id="feedbackStatusIcon"
+                            aria-hidden="true"
+                        ></span>
+
+                        <h3
+                            class="feedback-status-title"
+                            id="feedbackStatusTitle"
+                        >
+                            Correct Answer
+                        </h3>
+
+                    </div>
+
+                    <div class="feedback-answer">
+                        <span class="feedback-answer-label">
+                            Correct answer:
+                        </span>
+
+                        <span
+                            class="feedback-answer-value"
+                            id="correctAnswerText"
+                        >
+                            Answer text
+                        </span>
+                    </div>
+
+                    <div class="feedback-explanation-container">
+
+                        <span class="feedback-explanation-label">
+                            Explanation
+                        </span>
+
+                        <p
+                            class="feedback-explanation"
+                            id="answerExplanation"
+                        >
+                            The explanation for this answer will appear here.
+                        </p>
+
+                    </div>
+
+                </div>
+
             </section>
 
-            <!-- QUIZ SELECTION -->
-            <section class="quiz-section">
 
-                <div class="section-heading">
+            <!-- QUESTION NAVIGATION TOGGLE -->
+            <div class="question-tools">
+
+                <button
+                    type="button"
+                    class="question-nav-toggle"
+                    id="questionNavToggle"
+                    aria-expanded="false"
+                    aria-controls="questionNavigator"
+                >
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <rect
+                            x="3"
+                            y="4"
+                            width="7"
+                            height="7"
+                            rx="1.5"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="1.8"
+                        />
+                        <rect
+                            x="14"
+                            y="4"
+                            width="7"
+                            height="7"
+                            rx="1.5"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="1.8"
+                        />
+                        <rect
+                            x="3"
+                            y="15"
+                            width="7"
+                            height="7"
+                            rx="1.5"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="1.8"
+                        />
+                        <rect
+                            x="14"
+                            y="15"
+                            width="7"
+                            height="7"
+                            rx="1.5"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="1.8"
+                        />
+                    </svg>
+
+                    <span>Show Question Nav</span>
+
+                    <svg
+                        class="question-nav-chevron"
+                        viewBox="0 0 24 24"
+                        aria-hidden="true"
+                    >
+                        <path
+                            d="M6 9l6 6 6-6"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                        />
+                    </svg>
+
+                </button>
+
+            </div>
+
+
+            <!-- COLLAPSIBLE QUESTION NAVIGATOR -->
+            <section
+                class="question-navigator"
+                id="questionNavigator"
+                aria-label="Question navigation"
+                hidden
+            >
+
+                <div class="question-navigator-header">
+
                     <div>
-                        <span class="section-tag">01 / SELECT SUBJECT</span>
-                        <h2>Choose Your Challenge</h2>
-                        <p>Select a subject or explore them all.</p>
+                        <h3 class="question-navigator-title">
+                            Question Navigator
+                        </h3>
+
+                        <p class="question-navigator-description">
+                            Select a question to move directly to it.
+                        </p>
                     </div>
+
+                    <button
+                        type="button"
+                        class="close-question-nav"
+                        id="closeQuestionNav"
+                        aria-label="Close question navigator"
+                    >
+                        <svg viewBox="0 0 24 24" aria-hidden="true">
+                            <path
+                                d="M18 6L6 18M6 6l12 12"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                            />
+                        </svg>
+                    </button>
+
                 </div>
 
-                <div class="category-grid">
 
-                    <!-- TECHNOLOGY -->
-                    <button class="category-card featured"
-                        data-category="technology">
+                <!-- NAVIGATOR LEGEND -->
+                <div class="question-nav-legend">
 
-                        <div class="category-top">
-                            <span class="category-icon">&lt;/&gt;</span>
-                            <span class="category-number">01</span>
-                        </div>
+                    <span class="nav-legend-item">
+                        <span class="nav-legend-dot current"></span>
+                        Current
+                    </span>
 
-                        <h3>Technology & Programming</h3>
+                    <span class="nav-legend-item">
+                        <span class="nav-legend-dot answered"></span>
+                        Answered
+                    </span>
 
-                        <p>
-                            Programming languages, web development,
-                            databases, cybersecurity, AI and cloud computing.
-                        </p>
+                    <span class="nav-legend-item">
+                        <span class="nav-legend-dot unanswered"></span>
+                        Unanswered
+                    </span>
 
-                        <span class="category-link">
-                            Explore category <span>↗</span>
-                        </span>
+                </div>
 
+
+                <!-- QUESTION NUMBER BUTTONS -->
+                <div
+                    class="question-nav-grid"
+                    id="questionNavGrid"
+                    aria-label="Quiz questions"
+                >
+                    <!-- Question buttons will be generated by JavaScript. -->
+                </div>
+
+            </section>
+
+
+            <!-- BOTTOM QUESTION CONTROLS -->
+            <div class="quiz-navigation-controls">
+
+                <!-- SKIP AND NAVIGATION TOOLS -->
+                <div class="quiz-navigation-tools">
+
+                    <button
+                        type="button"
+                        class="skip-question-button"
+                        id="skipQuestionButton"
+                    >
+                        Skip Question
+                        <svg viewBox="0 0 24 24" aria-hidden="true">
+                            <path
+                                d="M5 12h14m-6-6l6 6-6 6"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                            />
+                        </svg>
                     </button>
 
-                    <!-- MATHEMATICS -->
-                    <button class="category-card"
-                        data-category="mathematics">
+                </div>
 
-                        <div class="category-top">
-                            <span class="category-icon">∑</span>
-                            <span class="category-number">02</span>
-                        </div>
 
-                        <h3>Mathematics</h3>
+                <!-- PREVIOUS AND NEXT CONTROLS -->
+                <div class="quiz-navigation-buttons">
 
-                        <p>
-                            Algebra, geometry, calculus, statistics
-                            and logical reasoning.
-                        </p>
+                    <button
+                        type="button"
+                        class="previous-question-button"
+                        id="previousQuestionButton"
+                        disabled
+                    >
+                        <svg viewBox="0 0 24 24" aria-hidden="true">
+                            <path
+                                d="M19 12H5m6 6l-6-6 6-6"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                            />
+                        </svg>
 
-                        <span class="category-link">
-                            Explore category <span>↗</span>
-                        </span>
-
+                        <span>Previous</span>
                     </button>
 
-                    <!-- SCIENCE -->
-                    <button class="category-card"
-                        data-category="science">
 
-                        <div class="category-top">
-                            <span class="category-icon">⚗</span>
-                            <span class="category-number">03</span>
-                        </div>
+                    <button
+                        type="button"
+                        class="next-question-button"
+                        id="nextQuestionButton"
+                    >
+                        <span>Next Question</span>
 
-                        <h3>General Science</h3>
-
-                        <p>
-                            Biology, chemistry, human anatomy
-                            and scientific discoveries.
-                        </p>
-
-                        <span class="category-link">
-                            Explore category <span>↗</span>
-                        </span>
-
+                        <svg viewBox="0 0 24 24" aria-hidden="true">
+                            <path
+                                d="M5 12h14m-6-6l6 6-6 6"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                            />
+                        </svg>
                     </button>
 
-                    <!-- PHYSICS -->
-                    <button class="category-card"
-                        data-category="physics">
 
-                        <div class="category-top">
-                            <span class="category-icon">⚛</span>
-                            <span class="category-number">04</span>
-                        </div>
+                    <button
+                        type="button"
+                        class="submit-quiz-button"
+                        id="submitQuizButton"
+                        hidden
+                    >
+                        Submit Quiz
 
-                        <h3>Physics</h3>
-
-                        <p>
-                            Mechanics, electricity, energy,
-                            motion and waves.
-                        </p>
-
-                        <span class="category-link">
-                            Explore category <span>↗</span>
-                        </span>
-
+                        <svg viewBox="0 0 24 24" aria-hidden="true">
+                            <path
+                                d="M5 12l4 4L19 6"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                            />
+                        </svg>
                     </button>
 
-                    <!-- MIXED QUIZ -->
-                    <button class="category-card mixed-card"
-                        data-category="mixed">
+                </div>
 
-                        <div class="category-top">
-                            <span class="category-icon">⤨</span>
-                            <span class="category-number">05</span>
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <!-- ONE-MINUTE TIMER WARNING -->
+    <div
+        class="quiz-time-warning"
+        id="quizTimeWarning"
+        role="alert"
+        aria-live="assertive"
+        hidden
+    >
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+            <circle
+                cx="12"
+                cy="12"
+                r="9"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+            />
+            <path
+                d="M12 7v5l3 2"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+            />
+        </svg>
+
+        <span>
+            One minute remaining. Complete your answers before time runs out.
+        </span>
+    </div>
+
+
+    <!-- EXIT QUIZ CONFIRMATION -->
+    <div
+        class="quiz-modal-overlay"
+        id="exitQuizModal"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="exitQuizModalTitle"
+        aria-describedby="exitQuizModalDescription"
+        hidden
+    >
+
+        <div class="quiz-confirmation-modal">
+
+            <div class="quiz-modal-icon warning-icon">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path
+                        d="M12 9v4m0 4h.01M10.3 3.9L2.8 17a2 2 0 001.7 3h15a2 2 0 001.7-3l-7.5-13.1a2 2 0 00-3.4 0z"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="1.8"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                    />
+                </svg>
+            </div>
+
+            <h2 id="exitQuizModalTitle">
+                Exit This Quiz?
+            </h2>
+
+            <p id="exitQuizModalDescription">
+                Are you sure you want to exit? Your current quiz progress and
+                answers will be lost.
+            </p>
+
+            <div class="quiz-modal-actions">
+
+                <button
+                    type="button"
+                    class="modal-cancel-button"
+                    id="cancelExitQuiz"
+                >
+                    Continue Quiz
+                </button>
+
+                <button
+                    type="button"
+                    class="modal-confirm-button"
+                    id="confirmExitQuiz"
+                >
+                    Exit Quiz
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- UNANSWERED QUESTIONS SUBMISSION CONFIRMATION -->
+    <div
+        class="quiz-modal-overlay"
+        id="submitQuizModal"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="submitQuizModalTitle"
+        aria-describedby="submitQuizModalDescription"
+        hidden
+    >
+
+        <div class="quiz-confirmation-modal">
+
+            <div class="quiz-modal-icon warning-icon">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path
+                        d="M12 9v4m0 4h.01M10.3 3.9L2.8 17a2 2 0 001.7 3h15a2 2 0 001.7-3l-7.5-13.1a2 2 0 00-3.4 0z"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="1.8"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                    />
+                </svg>
+            </div>
+
+            <h2 id="submitQuizModalTitle">
+                Unanswered Questions
+            </h2>
+
+            <p id="submitQuizModalDescription">
+                You still have unanswered questions. Are you sure you want
+                to submit your quiz?
+            </p>
+
+            <div class="unanswered-question-summary">
+                <span>Unanswered questions:</span>
+
+                <strong id="unansweredQuestionCount">
+                    0
+                </strong>
+            </div>
+
+            <div
+                class="unanswered-question-list"
+                id="unansweredQuestionList"
+                hidden
+            >
+                <!-- Unanswered question numbers will be generated by JavaScript. -->
+            </div>
+
+            <div class="quiz-modal-actions">
+
+                <button
+                    type="button"
+                    class="modal-cancel-button"
+                    id="returnToQuizButton"
+                >
+                    Return to Quiz
+                </button>
+
+                <button
+                    type="button"
+                    class="modal-confirm-button"
+                    id="confirmSubmitQuiz"
+                >
+                    Submit Anyway
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- =========================================================
+     4. RESULT PAGE
+========================================================= -->
+
+<section class="result-page" id="resultPage" hidden>
+
+    <main class="result-main">
+        <div class="result-container">
+
+            <!-- RESULT INTRODUCTION -->
+            <header class="result-header">
+
+                <div class="result-header-icon">
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path
+                            d="M8 12l2.5 2.5L16 9"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                        />
+                        <circle
+                            cx="12"
+                            cy="12"
+                            r="9"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="1.8"
+                        />
+                    </svg>
+                </div>
+
+                <span class="result-eyebrow">QUIZ COMPLETED</span>
+
+                <h1 class="result-title" id="resultTitle">
+                    Your Results Are In!
+                </h1>
+
+                <p class="result-description" id="resultDescription">
+                    Here is a detailed breakdown of your quiz performance.
+                </p>
+
+                <div class="result-mode-label" id="resultModeLabel">
+                    Practice Mode
+                </div>
+
+            </header>
+
+
+            <!-- MAIN SCORE CARD -->
+            <section class="result-score-card" aria-label="Final quiz score">
+
+                <div class="result-score-content">
+
+                    <div class="result-score-ring">
+
+                        <svg
+                            class="score-ring-svg"
+                            viewBox="0 0 220 220"
+                            role="img"
+                            aria-label="Final score percentage"
+                        >
+                            <circle
+                                class="score-ring-background"
+                                cx="110"
+                                cy="110"
+                                r="94"
+                            />
+
+                            <circle
+                                class="score-ring-progress"
+                                id="scoreRingProgress"
+                                cx="110"
+                                cy="110"
+                                r="94"
+                            />
+                        </svg>
+
+                        <div class="score-ring-center">
+
+                            <span
+                                class="result-score-percentage"
+                                id="resultPercentage"
+                            >
+                                0%
+                            </span>
+
+                            <span class="score-ring-caption">
+                                FINAL SCORE
+                            </span>
+
                         </div>
 
-                        <h3>Mixed Challenge</h3>
+                    </div>
 
-                        <p>
-                            Combine all four subjects in one
-                            randomized knowledge challenge.
-                        </p>
 
-                        <span class="category-link">
-                            Explore all subjects <span>↗</span>
+                    <div class="result-score-details">
+
+                        <span class="result-score-label">
+                            YOUR PERFORMANCE
                         </span>
 
-                    </button>
+                        <h2
+                            class="result-performance-title"
+                            id="performanceTitle"
+                        >
+                            Keep Improving!
+                        </h2>
+
+                        <p
+                            class="result-performance-message"
+                            id="performanceMessage"
+                        >
+                            Every attempt is an opportunity to learn and improve.
+                        </p>
+
+                        <div class="result-score-fraction">
+
+                            <strong id="resultCorrectCount">0</strong>
+
+                            <span>correct out of</span>
+
+                            <strong id="resultTotalCount">0</strong>
+
+                            <span>questions</span>
+
+                        </div>
+
+                    </div>
 
                 </div>
 
             </section>
 
-            <!-- QUIZ CONFIGURATION -->
-            <section class="configuration-section">
 
-                <div class="section-heading">
+            <!-- PERFORMANCE STATISTICS -->
+            <section class="result-statistics-section">
+
+                <div class="result-section-heading">
+
                     <div>
-                        <span class="section-tag">02 / SET YOUR LEVEL</span>
-                        <h2>Customize Your Challenge</h2>
-                        <p>Choose how difficult you want your quiz to be.</p>
+                        <span class="result-section-eyebrow">
+                            PERFORMANCE OVERVIEW
+                        </span>
+
+                        <h2 class="result-section-title">
+                            Your Quiz Statistics
+                        </h2>
                     </div>
+
                 </div>
 
-                <div class="configuration-card">
 
-                    <div class="config-group">
+                <div class="result-statistics-grid">
 
-                        <label>Difficulty Level</label>
+                    <!-- CORRECT ANSWERS -->
+                    <article class="result-stat-card correct-stat-card">
 
-                        <div class="difficulty-options">
-
-                            <button class="difficulty-button active"
-                                data-difficulty="beginner">
-                                Beginner
-                            </button>
-
-                            <button class="difficulty-button"
-                                data-difficulty="intermediate">
-                                Intermediate
-                            </button>
-
-                            <button class="difficulty-button"
-                                data-difficulty="advanced">
-                                Advanced
-                            </button>
-
+                        <div class="result-stat-icon">
+                            <svg viewBox="0 0 24 24" aria-hidden="true">
+                                <path
+                                    d="M5 12l4 4L19 6"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    stroke-width="2.2"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                />
+                            </svg>
                         </div>
+
+                        <span class="result-stat-label">
+                            Correct Answers
+                        </span>
+
+                        <strong
+                            class="result-stat-value"
+                            id="resultCorrectStat"
+                        >
+                            0
+                        </strong>
+
+                    </article>
+
+
+                    <!-- INCORRECT ANSWERS -->
+                    <article class="result-stat-card incorrect-stat-card">
+
+                        <div class="result-stat-icon">
+                            <svg viewBox="0 0 24 24" aria-hidden="true">
+                                <path
+                                    d="M18 6L6 18M6 6l12 12"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    stroke-width="2.2"
+                                    stroke-linecap="round"
+                                />
+                            </svg>
+                        </div>
+
+                        <span class="result-stat-label">
+                            Incorrect Answers
+                        </span>
+
+                        <strong
+                            class="result-stat-value"
+                            id="resultIncorrectStat"
+                        >
+                            0
+                        </strong>
+
+                    </article>
+
+
+                    <!-- UNANSWERED QUESTIONS -->
+                    <article class="result-stat-card unanswered-stat-card">
+
+                        <div class="result-stat-icon">
+                            <svg viewBox="0 0 24 24" aria-hidden="true">
+                                <circle
+                                    cx="12"
+                                    cy="12"
+                                    r="9"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    stroke-width="2"
+                                />
+                                <path
+                                    d="M12 8v4m0 4h.01"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    stroke-width="2"
+                                    stroke-linecap="round"
+                                />
+                            </svg>
+                        </div>
+
+                        <span class="result-stat-label">
+                            Unanswered
+                        </span>
+
+                        <strong
+                            class="result-stat-value"
+                            id="resultUnansweredStat"
+                        >
+                            0
+                        </strong>
+
+                    </article>
+
+
+                    <!-- ACCURACY -->
+                    <article class="result-stat-card accuracy-stat-card">
+
+                        <div class="result-stat-icon">
+                            <svg viewBox="0 0 24 24" aria-hidden="true">
+                                <path
+                                    d="M4 19V5m0 14h16M8 15l3-4 3 2 5-7"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    stroke-width="2"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                />
+                            </svg>
+                        </div>
+
+                        <span class="result-stat-label">
+                            Accuracy
+                        </span>
+
+                        <strong
+                            class="result-stat-value"
+                            id="resultAccuracyStat"
+                        >
+                            0%
+                        </strong>
+
+                    </article>
+
+
+                    <!-- TIME SPENT -->
+                    <article class="result-stat-card time-spent-stat-card">
+
+                        <div class="result-stat-icon">
+                            <svg viewBox="0 0 24 24" aria-hidden="true">
+                                <circle
+                                    cx="12"
+                                    cy="12"
+                                    r="9"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    stroke-width="2"
+                                />
+                                <path
+                                    d="M12 7v5l3 2"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    stroke-width="2"
+                                    stroke-linecap="round"
+                                />
+                            </svg>
+                        </div>
+
+                        <span class="result-stat-label">
+                            Time Spent
+                        </span>
+
+                        <strong
+                            class="result-stat-value"
+                            id="resultTimeSpent"
+                        >
+                            00:00
+                        </strong>
+
+                    </article>
+
+
+                    <!-- TIME REMAINING -->
+                    <article class="result-stat-card time-remaining-stat-card">
+
+                        <div class="result-stat-icon">
+                            <svg viewBox="0 0 24 24" aria-hidden="true">
+                                <circle
+                                    cx="12"
+                                    cy="12"
+                                    r="9"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    stroke-width="2"
+                                />
+                                <path
+                                    d="M12 12V7m0 5l3 2"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    stroke-width="2"
+                                    stroke-linecap="round"
+                                />
+                            </svg>
+                        </div>
+
+                        <span class="result-stat-label">
+                            Time Remaining
+                        </span>
+
+                        <strong
+                            class="result-stat-value"
+                            id="resultTimeRemaining"
+                        >
+                            00:00
+                        </strong>
+
+                    </article>
+
+
+                    <!-- AVERAGE TIME -->
+                    <article class="result-stat-card average-time-stat-card">
+
+                        <div class="result-stat-icon">
+                            <svg viewBox="0 0 24 24" aria-hidden="true">
+                                <path
+                                    d="M12 3v3m0 12v3M3 12h3m12 0h3M5.6 5.6l2.1 2.1m8.6 8.6l2.1 2.1m0-12.8l-2.1 2.1m-8.6 8.6l-2.1 2.1"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    stroke-width="1.8"
+                                    stroke-linecap="round"
+                                />
+                                <circle
+                                    cx="12"
+                                    cy="12"
+                                    r="4"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    stroke-width="1.8"
+                                />
+                            </svg>
+                        </div>
+
+                        <span class="result-stat-label">
+                            Average Per Question
+                        </span>
+
+                        <strong
+                            class="result-stat-value"
+                            id="resultAverageTime"
+                        >
+                            00:00
+                        </strong>
+
+                    </article>
+
+
+                    <!-- TOTAL QUESTIONS -->
+                    <article class="result-stat-card total-questions-stat-card">
+
+                        <div class="result-stat-icon">
+                            <svg viewBox="0 0 24 24" aria-hidden="true">
+                                <path
+                                    d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    stroke-width="2"
+                                    stroke-linecap="round"
+                                />
+                            </svg>
+                        </div>
+
+                        <span class="result-stat-label">
+                            Total Questions
+                        </span>
+
+                        <strong
+                            class="result-stat-value"
+                            id="resultTotalQuestionsStat"
+                        >
+                            0
+                        </strong>
+
+                    </article>
+
+                </div>
+
+            </section>
+
+
+            <!-- SUBJECT PERFORMANCE -->
+            <section
+                class="result-subject-section"
+                id="resultSubjectSection"
+            >
+
+                <div class="result-section-heading">
+
+                    <div>
+                        <span class="result-section-eyebrow">
+                            SUBJECT ANALYSIS
+                        </span>
+
+                        <h2 class="result-section-title">
+                            Performance by Subject
+                        </h2>
+
+                        <p class="result-section-description">
+                            See how you performed across your selected subjects.
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <div
+                    class="subject-performance-list"
+                    id="subjectPerformanceList"
+                >
+                    <!-- Subject performance cards will be generated by JavaScript. -->
+                </div>
+
+            </section>
+
+
+            <!-- STRENGTHS AND IMPROVEMENT AREAS -->
+            <section
+                class="result-insights-section"
+                id="resultInsightsSection"
+            >
+
+                <div class="result-section-heading">
+
+                    <div>
+                        <span class="result-section-eyebrow">
+                            LEARNING INSIGHTS
+                        </span>
+
+                        <h2 class="result-section-title">
+                            Your Strengths & Areas to Improve
+                        </h2>
 
                     </div>
 
-                    <div class="config-divider"></div>
+                </div>
 
-                    <div class="quiz-info">
 
-                        <div>
-                            <span class="info-label">QUESTIONS</span>
-                            <strong>25</strong>
+                <div class="result-insights-grid">
+
+                    <!-- STRENGTHS -->
+                    <article class="result-insight-card strengths-card">
+
+                        <div class="result-insight-heading">
+
+                            <div class="result-insight-icon">
+                                <svg viewBox="0 0 24 24" aria-hidden="true">
+                                    <path
+                                        d="M12 2l2.5 6 6.5.5-5 4.2 1.5 6.3-5.5-3.5-5.5 3.5 1.5-6.3-5-4.2 6.5-.5L12 2z"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        stroke-width="1.7"
+                                        stroke-linejoin="round"
+                                    />
+                                </svg>
+                            </div>
+
+                            <h3>Your Strengths</h3>
+
                         </div>
 
-                        <div>
-                            <span class="info-label">TIME LIMIT</span>
-                            <strong>25 Minutes</strong>
+                        <div
+                            class="result-insight-content"
+                            id="resultStrengths"
+                        >
+                            <!-- Strengths will be generated by JavaScript. -->
                         </div>
 
-                        <div>
-                            <span class="info-label">QUESTION TYPE</span>
-                            <strong>Multiple Choice</strong>
+                    </article>
+
+
+                    <!-- IMPROVEMENT AREAS -->
+                    <article class="result-insight-card improvement-card">
+
+                        <div class="result-insight-heading">
+
+                            <div class="result-insight-icon">
+                                <svg viewBox="0 0 24 24" aria-hidden="true">
+                                    <path
+                                        d="M12 19V5m-6 6l6-6 6 6"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        stroke-width="2"
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                    />
+                                </svg>
+                            </div>
+
+                            <h3>Areas to Improve</h3>
+
                         </div>
+
+                        <div
+                            class="result-insight-content"
+                            id="resultImprovementAreas"
+                        >
+                            <!-- Improvement areas will be generated by JavaScript. -->
+                        </div>
+
+                    </article>
+
+                </div>
+
+            </section>
+
+
+            <!-- PERSONALIZED RECOMMENDATIONS -->
+            <section class="result-recommendations-section">
+
+                <div class="result-recommendations-card">
+
+                    <div class="recommendation-icon">
+                        <svg viewBox="0 0 24 24" aria-hidden="true">
+                            <path
+                                d="M9 18h6m-5 4h4m-3-20a7 7 0 00-4 12.7c.7.5 1 1.3 1 2.3h4c0-1 .3-1.8 1-2.3A7 7 0 0011 2z"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="1.8"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                            />
+                        </svg>
+                    </div>
+
+                    <div class="recommendation-content">
+
+                        <span class="result-section-eyebrow">
+                            YOUR NEXT STEP
+                        </span>
+
+                        <h2 class="recommendation-title">
+                            Keep Building Your Knowledge
+                        </h2>
+
+                        <p
+                            class="recommendation-message"
+                            id="resultRecommendation"
+                        >
+                            Your personalised learning recommendations will
+                            appear here.
+                        </p>
 
                     </div>
 
-                    <button class="start-button" id="start-quiz">
-                        Start Quiz <span>→</span>
-                    </button>
+                </div>
 
-                    <p class="selection-message" id="selection-message">
-                        Select a category to begin your challenge.
+            </section>
+
+
+            <!-- RESULT PAGE ACTIONS -->
+            <section class="result-actions-section">
+
+                <div class="result-actions-heading">
+
+                    <h2>What's Next?</h2>
+
+                    <p>
+                        Choose what you would like to do next.
                     </p>
 
                 </div>
 
-            </section>
 
-            <!-- FOOTER -->
-            <footer class="footer">
+                <div class="result-actions-grid">
 
-                <div class="footer-brand">
-                    HIFE<span>.QUIZ</span>
+                    <!-- REVIEW ANSWERS -->
+                    <button
+                        type="button"
+                        class="result-action-button review-answers-button"
+                        id="reviewAnswersButton"
+                    >
+                        <span class="result-action-icon">
+                            <svg viewBox="0 0 24 24" aria-hidden="true">
+                                <path
+                                    d="M4 5h16M4 10h16M4 15h10M4 20h10"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    stroke-width="2"
+                                    stroke-linecap="round"
+                                />
+                            </svg>
+                        </span>
+
+                        <span class="result-action-text">
+                            <strong>Review Answers</strong>
+                            <small>View every question and its answer.</small>
+                        </span>
+
+                        <svg
+                            class="result-action-arrow"
+                            viewBox="0 0 24 24"
+                            aria-hidden="true"
+                        >
+                            <path
+                                d="M5 12h14m-6-6l6 6-6 6"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                            />
+                        </svg>
+                    </button>
+
+
+                    <!-- RETAKE QUIZ -->
+                    <button
+                        type="button"
+                        class="result-action-button retake-quiz-button"
+                        id="retakeQuizButton"
+                    >
+                        <span class="result-action-icon">
+                            <svg viewBox="0 0 24 24" aria-hidden="true">
+                                <path
+                                    d="M20 7v5h-5M4 17v-5h5m-4-2a8 8 0 0113.5-4L20 12M4 12l1.5 6a8 8 0 0013.5-4"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    stroke-width="1.8"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                />
+                            </svg>
+                        </span>
+
+                        <span class="result-action-text">
+                            <strong>Retake Quiz</strong>
+                            <small>Try this quiz again.</small>
+                        </span>
+
+                        <svg
+                            class="result-action-arrow"
+                            viewBox="0 0 24 24"
+                            aria-hidden="true"
+                        >
+                            <path
+                                d="M5 12h14m-6-6l6 6-6 6"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                            />
+                        </svg>
+                    </button>
+
+
+                    <!-- NEW QUIZ -->
+                    <button
+                        type="button"
+                        class="result-action-button new-quiz-button"
+                        id="newQuizButton"
+                    >
+                        <span class="result-action-icon">
+                            <svg viewBox="0 0 24 24" aria-hidden="true">
+                                <path
+                                    d="M12 5v14m-7-7h14"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    stroke-width="2"
+                                    stroke-linecap="round"
+                                />
+                            </svg>
+                        </span>
+
+                        <span class="result-action-text">
+                            <strong>New Quiz</strong>
+                            <small>Choose new quiz settings.</small>
+                        </span>
+
+                        <svg
+                            class="result-action-arrow"
+                            viewBox="0 0 24 24"
+                            aria-hidden="true"
+                        >
+                            <path
+                                d="M5 12h14m-6-6l6 6-6 6"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                            />
+                        </svg>
+                    </button>
+
+
+                    <!-- RETURN HOME -->
+                    <button
+                        type="button"
+                        class="result-action-button return-home-button"
+                        id="returnHomeButton"
+                    >
+                        <span class="result-action-icon">
+                            <svg viewBox="0 0 24 24" aria-hidden="true">
+                                <path
+                                    d="M3 10.5L12 3l9 7.5M5 9v12h14V9m-9 12v-7h4v7"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    stroke-width="1.8"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                />
+                            </svg>
+                        </span>
+
+                        <span class="result-action-text">
+                            <strong>Return Home</strong>
+                            <small>Go back to the welcome page.</small>
+                        </span>
+
+                        <svg
+                            class="result-action-arrow"
+                            viewBox="0 0 24 24"
+                            aria-hidden="true"
+                        >
+                            <path
+                                d="M5 12h14m-6-6l6 6-6 6"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                            />
+                        </svg>
+                    </button>
+
                 </div>
 
-                <p>
-                    Built with HTML, CSS & JavaScript.
-                    <span>© <span id="current-year"></span> Hife.</span>
-                </p>
+            </section>
 
-                <span class="footer-signature">
-                    CHALLENGE YOUR LIMITS.
-                </span>
+        </div>
+    </main>
+
+</section>
+
+<!-- =========================================================
+     5. VIEW ANSWERS PAGE
+========================================================= -->
+
+<section class="view-answers-page" id="viewAnswersPage" hidden>
+
+    <main class="answers-review-main">
+
+        <div class="answers-review-container">
+
+
+            <!-- REVIEW PAGE HEADER -->
+            <header class="answers-review-header">
+
+                <div class="answers-header-top">
+
+                    <div class="answers-header-title">
+
+                        <span class="result-section-eyebrow">
+                            QUIZ REVIEW
+                        </span>
+
+                        <h1 class="answers-page-title">
+                            Review Your Answers
+                        </h1>
+
+                        <p class="answers-page-description">
+                            Review your responses, understand the correct
+                            answers and learn from every question.
+                        </p>
+
+                    </div>
+
+                    <button
+                        type="button"
+                        class="back-to-results-button"
+                        id="backToResultsButton"
+                    >
+                        <svg viewBox="0 0 24 24" aria-hidden="true">
+                            <path
+                                d="M19 12H5m6 6l-6-6 6-6"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                            />
+                        </svg>
+
+                        <span>Back to Results</span>
+                    </button>
+
+                </div>
+
+            </header>
+
+
+            <!-- COMPACT RESULT SUMMARY -->
+            <section
+                class="answers-result-summary"
+                aria-label="Quiz result summary"
+            >
+
+                <div class="answers-summary-item">
+
+                    <span class="answers-summary-label">
+                        Final Score
+                    </span>
+
+                    <strong
+                        class="answers-summary-value"
+                        id="reviewFinalScore"
+                    >
+                        0%
+                    </strong>
+
+                </div>
+
+
+                <div class="answers-summary-divider"></div>
+
+
+                <div class="answers-summary-item">
+
+                    <span class="answers-summary-label">
+                        Correct
+                    </span>
+
+                    <strong
+                        class="answers-summary-value correct-summary-value"
+                        id="reviewCorrectCount"
+                    >
+                        0
+                    </strong>
+
+                </div>
+
+
+                <div class="answers-summary-divider"></div>
+
+
+                <div class="answers-summary-item">
+
+                    <span class="answers-summary-label">
+                        Incorrect
+                    </span>
+
+                    <strong
+                        class="answers-summary-value incorrect-summary-value"
+                        id="reviewIncorrectCount"
+                    >
+                        0
+                    </strong>
+
+                </div>
+
+
+                <div class="answers-summary-divider"></div>
+
+
+                <div class="answers-summary-item">
+
+                    <span class="answers-summary-label">
+                        Unanswered
+                    </span>
+
+                    <strong
+                        class="answers-summary-value unanswered-summary-value"
+                        id="reviewUnansweredCount"
+                    >
+                        0
+                    </strong>
+
+                </div>
+
+
+                <div class="answers-summary-divider"></div>
+
+
+                <div class="answers-summary-item">
+
+                    <span class="answers-summary-label">
+                        Accuracy
+                    </span>
+
+                    <strong
+                        class="answers-summary-value"
+                        id="reviewAccuracy"
+                    >
+                        0%
+                    </strong>
+
+                </div>
+
+            </section>
+
+
+            <!-- REVIEW FILTERS -->
+            <section class="answers-filter-section">
+
+                <div class="answers-filter-heading">
+
+                    <div>
+                        <span class="result-section-eyebrow">
+                            ANSWER ANALYSIS
+                        </span>
+
+                        <h2 class="answers-filter-title">
+                            Find Questions
+                        </h2>
+                    </div>
+
+                    <span
+                        class="filtered-question-count"
+                        id="filteredQuestionCount"
+                    >
+                        0 Questions
+                    </span>
+
+                </div>
+
+
+                <!-- ANSWER STATUS FILTERS -->
+                <div class="answer-status-filters">
+
+                    <button
+                        type="button"
+                        class="answer-filter-button active"
+                        data-answer-filter="all"
+                        aria-pressed="true"
+                    >
+                        All Questions
+                        <span id="filterAllCount">0</span>
+                    </button>
+
+
+                    <button
+                        type="button"
+                        class="answer-filter-button"
+                        data-answer-filter="correct"
+                        aria-pressed="false"
+                    >
+                        Correct
+                        <span id="filterCorrectCount">0</span>
+                    </button>
+
+
+                    <button
+                        type="button"
+                        class="answer-filter-button"
+                        data-answer-filter="incorrect"
+                        aria-pressed="false"
+                    >
+                        Incorrect
+                        <span id="filterIncorrectCount">0</span>
+                    </button>
+
+
+                    <button
+                        type="button"
+                        class="answer-filter-button"
+                        data-answer-filter="unanswered"
+                        aria-pressed="false"
+                    >
+                        Unanswered
+                        <span id="filterUnansweredCount">0</span>
+                    </button>
+
+                </div>
+
+
+                <!-- SUBJECT FILTER -->
+                <div class="subject-review-filter">
+
+                    <label
+                        class="subject-review-filter-label"
+                        for="reviewSubjectFilter"
+                    >
+                        Filter by Subject
+                    </label>
+
+                    <div class="subject-review-select-wrapper">
+
+                        <select
+                            id="reviewSubjectFilter"
+                            class="subject-review-select"
+                        >
+                            <option value="all">
+                                All Subjects
+                            </option>
+                        </select>
+
+                        <svg viewBox="0 0 24 24" aria-hidden="true">
+                            <path
+                                d="M6 9l6 6 6-6"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                            />
+                        </svg>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- QUESTION NAVIGATION -->
+            <section class="answers-question-navigation">
+
+                <button
+                    type="button"
+                    class="answers-nav-toggle"
+                    id="answersNavToggle"
+                    aria-expanded="false"
+                    aria-controls="answersQuestionNavigator"
+                >
+
+                    <span class="answers-nav-toggle-left">
+
+                        <svg viewBox="0 0 24 24" aria-hidden="true">
+                            <rect
+                                x="3"
+                                y="4"
+                                width="7"
+                                height="7"
+                                rx="1"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="1.8"
+                            />
+                            <rect
+                                x="14"
+                                y="4"
+                                width="7"
+                                height="7"
+                                rx="1"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="1.8"
+                            />
+                            <rect
+                                x="3"
+                                y="15"
+                                width="7"
+                                height="7"
+                                rx="1"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="1.8"
+                            />
+                            <rect
+                                x="14"
+                                y="15"
+                                width="7"
+                                height="7"
+                                rx="1"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="1.8"
+                            />
+                        </svg>
+
+                        <span>Show Question Navigator</span>
+
+                    </span>
+
+
+                    <svg
+                        class="answers-nav-chevron"
+                        viewBox="0 0 24 24"
+                        aria-hidden="true"
+                    >
+                        <path
+                            d="M6 9l6 6 6-6"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                        />
+                    </svg>
+
+                </button>
+
+
+                <!-- COLLAPSIBLE NAVIGATOR -->
+                <div
+                    class="answers-question-navigator"
+                    id="answersQuestionNavigator"
+                    hidden
+                >
+
+                    <div class="answers-navigator-header">
+
+                        <div>
+                            <h3>Jump to a Question</h3>
+
+                            <p>
+                                Select a number to move directly to its review.
+                            </p>
+                        </div>
+
+                        <button
+                            type="button"
+                            class="answers-nav-close"
+                            id="closeAnswersNavigator"
+                            aria-label="Close question navigator"
+                        >
+                            <svg viewBox="0 0 24 24" aria-hidden="true">
+                                <path
+                                    d="M18 6L6 18M6 6l12 12"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    stroke-width="2"
+                                    stroke-linecap="round"
+                                />
+                            </svg>
+                        </button>
+
+                    </div>
+
+
+                    <!-- NAVIGATOR LEGEND -->
+                    <div class="answers-nav-legend">
+
+                        <span>
+                            <i class="answers-legend-dot correct"></i>
+                            Correct
+                        </span>
+
+                        <span>
+                            <i class="answers-legend-dot incorrect"></i>
+                            Incorrect
+                        </span>
+
+                        <span>
+                            <i class="answers-legend-dot unanswered"></i>
+                            Unanswered
+                        </span>
+
+                    </div>
+
+
+                    <!-- NAVIGATOR QUESTION BUTTONS -->
+                    <div
+                        class="answers-nav-grid"
+                        id="answersNavGrid"
+                    >
+                        <!-- Generated by JavaScript. -->
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- QUESTIONS REVIEW LIST -->
+            <section class="answers-questions-section">
+
+                <div class="answers-questions-heading">
+
+                    <div>
+                        <span class="result-section-eyebrow">
+                            COMPLETE REVIEW
+                        </span>
+
+                        <h2 class="answers-questions-title">
+                            Your Questions & Answers
+                        </h2>
+                    </div>
+
+                </div>
+
+
+                <!-- QUESTION CARDS GENERATED BY JAVASCRIPT -->
+                <div
+                    class="answers-review-list"
+                    id="answersReviewList"
+                >
+                    <!--
+                        JavaScript will generate one complete question card
+                        for every question in the completed quiz.
+
+                        Each card will contain:
+                        1. Question number.
+                        2. Subject and difficulty.
+                        3. Question text.
+                        4. All four answer options.
+                        5. Selected answer.
+                        6. Correct answer.
+                        7. Explanation.
+                    -->
+                </div>
+
+
+                <!-- EMPTY FILTER RESULTS -->
+                <div
+                    class="answers-empty-state"
+                    id="answersEmptyState"
+                    hidden
+                >
+
+                    <div class="answers-empty-icon">
+                        <svg viewBox="0 0 24 24" aria-hidden="true">
+                            <circle
+                                cx="11"
+                                cy="11"
+                                r="7"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="1.8"
+                            />
+                            <path
+                                d="M16 16l5 5"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                            />
+                        </svg>
+                    </div>
+
+                    <h3>No Questions Found</h3>
+
+                    <p>
+                        There are no questions matching your selected filters.
+                    </p>
+
+                    <button
+                        type="button"
+                        class="reset-review-filters"
+                        id="resetReviewFilters"
+                    >
+                        Clear Filters
+                    </button>
+
+                </div>
+
+            </section>
+
+
+            <!-- REVIEW PAGE FOOTER -->
+            <footer class="answers-review-footer">
+
+                <div class="answers-footer-message">
+
+                    <span class="answers-footer-icon">
+                        <svg viewBox="0 0 24 24" aria-hidden="true">
+                            <path
+                                d="M12 3a9 9 0 100 18 9 9 0 000-18zm0 5v4l3 2"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="1.8"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                            />
+                        </svg>
+                    </span>
+
+                    <p>
+                        Every question is an opportunity to learn something new.
+                        Keep practising and keep improving.
+                    </p>
+
+                </div>
+
+
+                <div class="answers-footer-actions">
+
+                    <button
+                        type="button"
+                        class="answers-back-results-button"
+                        id="answersFooterBackToResults"
+                    >
+                        <svg viewBox="0 0 24 24" aria-hidden="true">
+                            <path
+                                d="M19 12H5m6 6l-6-6 6-6"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                            />
+                        </svg>
+
+                        Back to Results
+                    </button>
+
+
+                    <button
+                        type="button"
+                        class="back-to-top-button"
+                        id="backToAnswersTop"
+                    >
+                        Back to Top
+
+                        <svg viewBox="0 0 24 24" aria-hidden="true">
+                            <path
+                                d="M12 19V5m-6 6l6-6 6 6"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                            />
+                        </svg>
+                    </button>
+
+                </div>
 
             </footer>
 
-        </main>
+        </div>
 
-    </div>
+    </main>
 
-    <script src="questions.js"></script>
+</section>
 <script src="script.js"></script>
-
 </body>
 </html>
